@@ -1,11 +1,10 @@
 package com.exam.models;
 
-public class CommentLikes {
+public class CommentLikes extends Entity{
 
 /*
 	
  */
-	int id;
 	int performer;
 	int target;
 	int type;
@@ -16,19 +15,12 @@ public class CommentLikes {
 	}
 
 	public CommentLikes(int id, int performer, int target, int type) {
-		super();
-		this.id = id;
+		super(id);
 		this.performer = performer;
 		this.target = target;
 		this.type = type;
 	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public int getPerformer() {
 		return performer;
 	}

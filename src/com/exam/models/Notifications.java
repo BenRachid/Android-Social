@@ -1,6 +1,6 @@
 package com.exam.models;
 
-public class Notifications {
+public class Notifications extends Entity{
 /*
  *     		+ TABLE_NOTIFICATIONS+ "(" + KEY_ID + " INTEGER PRIMARY KEY," 
     		+ KEY_PERFORMER + " INTEGER," 
@@ -11,16 +11,10 @@ public class Notifications {
     		// MAYBE ADD A SEEN FOR NOTIFICATIONS TO STORE THEM ALL
  * */
 	
-	int id;
 	int performer;
 	int target;
 	int type;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public int getPerformer() {
 		return performer;
 	}
@@ -40,8 +34,7 @@ public class Notifications {
 		this.type = type;
 	}
 	public Notifications(int id, int performer, int target, int type) {
-		super();
-		this.id = id;
+		super(id);
 		this.performer = performer;
 		this.target = target;
 		this.type = type;

@@ -1,6 +1,6 @@
 package com.exam.models;
 
-public class Friends {
+public class Friends extends Entity{
 /*
  *     		+ TABLE_FRIENDS+ "(" + KEY_ID + " INTEGER PRIMARY KEY,"
 			+ KEY_NAME + " TEXT,"
@@ -9,18 +9,12 @@ public class Friends {
 			+ KEY_PHOTO + " TEXT," + ")";
  * */
 	
-	int id;
 	//this name is the nickname given by the user himself to a friend like in skype
 	String name;
 	String email;
 	//still not implemented
 	String photo;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public String getName() {
 		return name;
 	}
@@ -41,8 +35,7 @@ public class Friends {
 	}
 	
 	public Friends(int id, String name, String email, String photo) {
-		super();
-		this.id = id;
+		super(id);
 		this.name = name;
 		this.email = email;
 		this.photo = photo;

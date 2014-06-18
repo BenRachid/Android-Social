@@ -1,6 +1,6 @@
 package com.exam.models;
 
-public class Comments {
+public class Comments extends Entity{
 /*
             + TABLE_COMMENTS + "(" + KEY_ID + " INTEGER PRIMARY KEY," 
     		+ KEY_PERFORMER + " INTEGER," 
@@ -10,19 +10,13 @@ public class Comments {
     		+ KEY_UPDATED_AT +" DATETIME" + ")";
  * */
 	
-	int id;
 	int performer;
 	int parent;
 	int status;
 	String created_at;
 	String updated_at;
 	String content;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public int getPerformer() {
 		return performer;
 	}
@@ -61,8 +55,7 @@ public class Comments {
 	}
 	public Comments(int id, int performer, int parent, int status,
 			String created_at, String updated_at, String content) {
-		super();
-		this.id = id;
+		super(id);
 		this.performer = performer;
 		this.parent = parent;
 		this.status = status;

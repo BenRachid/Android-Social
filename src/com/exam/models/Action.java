@@ -2,8 +2,7 @@ package com.exam.models;
 /**
  class used to store performed actions with their dates will be used to optimize the sync operations
  */
-public class Action {
-	int id;
+public class Action extends Entity{
 	int performer;
 	//action should be commentAdd/Update/Remove, FriendAdd/Request/Delete and selfUpdate
 	String action;
@@ -11,12 +10,7 @@ public class Action {
 	int extInt;
 	String created_at;
 	int status;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public int getPerformer() {
 		return performer;
 	}
@@ -49,8 +43,7 @@ public class Action {
 	}
 	public Action(int id, int performer, String action, int extInt,
 			String created_at, int status) {
-		super();
-		this.id = id;
+		super(id);
 		this.performer = performer;
 		this.action = action;
 		this.extInt = extInt;
