@@ -1,6 +1,6 @@
 package com.exam.social.activities.comment;
 
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.exam.helpers.JSONParser;
+import com.exam.social.AbstractActivity;
 import com.exam.social.R;
 import com.exam.social.R.id;
 import com.exam.social.R.layout;
@@ -25,7 +25,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class EditCommentActivity extends Activity {
+public class EditCommentActivity extends AbstractActivity {
 
 	EditText txtName;
 	EditText txtPrice;
@@ -39,15 +39,12 @@ public class EditCommentActivity extends Activity {
 	// Progress Dialog
 	private ProgressDialog pDialog;
 
-	// JSON parser class
-	JSONParser jsonParser = new JSONParser();
-
 	// single comment url
 	private static final String url_comment_detials = "http://10.0.2.2/android_connect/get_comment_details.php";
 
 	// url to update comment
 	private static final String url_update_comment = "http://10.0.2.2/android_connect/update_comment.php";
-	
+
 	// url to delete comment
 	private static final String url_delete_comment = "http://10.0.2.2/android_connect/delete_comment.php";
 
@@ -70,7 +67,7 @@ public class EditCommentActivity extends Activity {
 
 		// getting comment details from intent
 		Intent i = getIntent();
-		
+
 		// getting comment id (pid) from intent
 		pid = i.getStringExtra(TAG_PID);
 
@@ -127,52 +124,58 @@ public class EditCommentActivity extends Activity {
 				public void run() {
 					// Check for success tag
 					int success;
-					try {
+					/*try {
 						// Building Parameters
 						List<NameValuePair> params = new ArrayList<NameValuePair>();
 						params.add(new BasicNameValuePair("pid", pid));
 
 						// getting comment details by making HTTP request
 						// Note that comment details url will use GET request
-						JSONObject json = jsonParser.makeHttpRequest(
-								url_comment_detials, "GET", params);
+						JSONObject json = makeHttpRequest(
+								url_comment_detials, "POST", params);
 
 						// check your log for json response
 						Log.d("Single Comment Details", json.toString());
-						
+
 						// json success tag
 						success = json.getInt(TAG_SUCCESS);
 						if (success == 1) {
 							// successfully received comment details
 							JSONArray commentObj = json
 									.getJSONArray(TAG_COMMENT); // JSON Array
-							
+
 							// get first comment object from JSON Array
 							JSONObject comment = commentObj.getJSONObject(0);
 
 							// comment with this pid found
 							// Edit Text
-							//txtName = (EditText) findViewById(R.id.inputName);
-							//txtPrice = (EditText) findViewById(R.id.inputPrice);
-							//txtDesc = (EditText) findViewById(R.id.inputDesc);
+							// txtName = (EditText)
+							// findViewById(R.id.inputName);
+							// txtPrice = (EditText)
+							// findViewById(R.id.inputPrice);
+							// txtDesc = (EditText)
+							// findViewById(R.id.inputDesc);
 
 							// display comment data in EditText
 							txtName.setText(comment.getString(TAG_NAME));
 							txtPrice.setText(comment.getString(TAG_PRICE));
 							txtDesc.setText(comment.getString(TAG_DESCRIPTION));
 
-						}else{
+						} else {
 							// comment with pid not found
+							
 						}
 					} catch (JSONException e) {
 						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
 					}
+					*/
 				}
 			});
 
 			return null;
 		}
-
 
 		/**
 		 * After completing background task Dismiss the progress dialog
@@ -184,7 +187,7 @@ public class EditCommentActivity extends Activity {
 	}
 
 	/**
-	 * Background Async Task to  Save comment Details
+	 * Background Async Task to Save comment Details
 	 * */
 	class SaveCommentDetails extends AsyncTask<String, String, String> {
 
@@ -220,13 +223,15 @@ public class EditCommentActivity extends Activity {
 
 			// sending modified data through http request
 			// Notice that update comment url accepts POST method
-			JSONObject json = jsonParser.makeHttpRequest(url_update_comment,
-					"POST", params);
+			JSONObject json;
+			/*try {
+				json = jsonParser.makeHttpRequest(url_update_comment, "POST",
+						params);
+		
 
 			// check json success tag
-			try {
 				int success = json.getInt(TAG_SUCCESS);
-				
+
 				if (success == 1) {
 					// successfully updated
 					Intent i = getIntent();
@@ -239,10 +244,12 @@ public class EditCommentActivity extends Activity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+			*/
 			return null;
 		}
-
 
 		/**
 		 * After completing background task Dismiss the progress dialog
@@ -278,7 +285,7 @@ public class EditCommentActivity extends Activity {
 
 			// Check for success tag
 			int success;
-			try {
+			/*try {
 				// Building Parameters
 				List<NameValuePair> params = new ArrayList<NameValuePair>();
 				params.add(new BasicNameValuePair("pid", pid));
@@ -289,7 +296,7 @@ public class EditCommentActivity extends Activity {
 
 				// check your log for json response
 				Log.d("Delete Comment", json.toString());
-				
+
 				// json success tag
 				success = json.getInt(TAG_SUCCESS);
 				if (success == 1) {
@@ -302,8 +309,11 @@ public class EditCommentActivity extends Activity {
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-
+*/
 			return null;
 		}
 

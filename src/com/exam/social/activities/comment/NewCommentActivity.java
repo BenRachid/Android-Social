@@ -1,5 +1,6 @@
 package com.exam.social.activities.comment;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.exam.helpers.JSONParser;
+import com.exam.social.AbstractActivity;
 import com.exam.social.R;
 import com.exam.social.R.id;
 import com.exam.social.R.layout;
@@ -23,12 +24,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class NewCommentActivity extends Activity {
+public class NewCommentActivity extends AbstractActivity {
 
 	// Progress Dialog
 	private ProgressDialog pDialog;
-
-	JSONParser jsonParser = new JSONParser();
+	
 	EditText inputName;
 	EditText inputPrice;
 	EditText inputContent;
@@ -92,17 +92,17 @@ public class NewCommentActivity extends Activity {
 			// add the performer and the created_at***********************
 			
 			params.add(new BasicNameValuePair("content", content));
-
+			/*try {
 			// getting JSON Object
 			// Note that create Comment url accepts POST method
-			JSONObject json = jsonParser.makeHttpRequest(url_create_comment,
+			JSONObject json = makeHttpRequest(url_create_comment,
 					"POST", params);
 			
 			// check log cat for response
 			Log.d("Create Response", json.toString());
 
 			// check for success tag
-			try {
+
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
@@ -118,7 +118,9 @@ public class NewCommentActivity extends Activity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-
+			catch (IOException e) {
+				e.printStackTrace();
+			}*/
 			return null;
 		}
 

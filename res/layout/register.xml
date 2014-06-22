@@ -21,10 +21,20 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Full Name" />
+            android:text="Last Name" />
 		<!--  Name TextField -->
         <EditText
-            android:id="@+id/registerName"
+            android:id="@+id/lastName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+                <!--  Name Label -->
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="first Name" />
+		<!--  Name TextField -->
+        <EditText
+            android:id="@+id/firstName"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
         
