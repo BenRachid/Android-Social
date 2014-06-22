@@ -6,6 +6,8 @@ import android.content.Context;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.exam.models.Comments;
@@ -25,24 +27,21 @@ public class CommentsAdapter extends EntityAdapter<Comments> {
 		}
 		
 		Comments comment= getItem(position);
-
 //		ImageView image = (ImageView) convertView.findViewById(R.id.icon);
 //		if (afaire.isFait()) {
 //			image.setImageDrawable(resources.getDrawable(R.drawable.ok));
 //		} else {
 //			image.setImageDrawable(resources.getDrawable(R.drawable.notok));
 //		}
-		TextView content = (TextView) convertView.findViewById(R.id.comment_content);
 		TextView nikName= (TextView) convertView.findViewById(R.id.comment_nickname);
 		TextView likes= (TextView) convertView.findViewById(R.id.comment_like);
 		TextView comments= (TextView) convertView.findViewById(R.id.comment_comment);
-		
-		Log.i("GETVIEW_COMMENT",content.toString());
+		TextView content = (TextView) convertView.findViewById(R.id.comment_content);
 		content.setText(comment.getContent());
 		nikName.setText("RACHID");
-		likes.setText("0");
-		comments.setText("0");
-		Log.i("GETVIEW_SUCSESS","");
+		likes.setText(comment.getLikesNumber());
+		comments.setText(comment.getCommentsNumber());
+		Log.i("GETVIEW_SUCSESS", comment.getContent());
 		return convertView;
 	}
 

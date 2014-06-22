@@ -66,5 +66,14 @@ public class Comments extends Entity{
 	public Comments() {
 		// TODO Auto-generated constructor stub
 	}
+	public int getLikesNumber() {
+		// TODO Auto-generated method stub
+		
+		return 0;
+	}
+	public int getCommentsNumber() {
+		// TODO Auto-generated method stub
+		return 25;
+	}
 
 }

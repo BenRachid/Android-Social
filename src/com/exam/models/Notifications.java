@@ -2,13 +2,9 @@ package com.exam.models;
 
 public class Notifications extends Entity{
 /*
- *     		+ TABLE_NOTIFICATIONS+ "(" + KEY_ID + " INTEGER PRIMARY KEY," 
-    		+ KEY_PERFORMER + " INTEGER," 
-    		+ KEY_TARGET + " INTEGER," 
-    		+ KEY_TYPE + " INTEGER," + ")";
-    		
-    		
-    		// MAYBE ADD A SEEN FOR NOTIFICATIONS TO STORE THEM ALL
+This class is used to stock our Notifications 
+the message will be deduced from the Type.
+we've got 3 different type 0-friendInvite,1X-postCommented, 2X-comment-like 
  * */
 	
 	int performer;
